@@ -24,17 +24,33 @@
             alert("Make sure to enter valid information for each field.")
          }
            
-         let  pilotStatus = document.getElementById("pilotStatus");
+         let pilotStatus = document.getElementById("pilotStatus");
          pilotStatus.innerHTML = `Pilot Chris is ready for lanuch`
 
-         let  copilotStatus = document.getElementById("copilotStatus");
-         copilateStatus.innerHTML = `Co-pilot Blake is ready for launch`
+         let copilotStatus = document.getElementById("copilotStatus");
+         copiloteStatus.innerHTML = `Co-pilot Blake is ready for launch`
 
-         let  fuelStatus = document.getElementById("fuelStatus");
+         let fuelStatus = document.getElementById("fuelStatus");
          copilateStatus.innerHTML = `Fuel level high enough for launch`
 
-         let  cargoStatus = document.getElementById("cargoStatus");
+         let cargoStatus = document.getElementById("cargoStatus");
          copilateStatus.innerHTML = `Cargo mass low enough for launch`
+
+         let launchStatus = document.getElementById("launchStatus");
+         if( fuelStatus < 10000) {
+            lau
+         }
+          const mylauch = function() {
+
+          }
+         // lauchStatus.value === `Shuttle not ready for launch`
+         if(fuelStatus < 10000 ){
+            alert(`With only ${fuelStatus.value} liters of fuel, the shuttle is not ready.\n
+             ${fuelStatus.value} is not enough fuel for the shuttle to lauch.`)
+         }
+
+         // With only 890 liters of fuel, the status of the launch becomes red and states that the shuttle is not ready.
+         //  The list has also updated to indicate that that is not enough fuel for the shuttle to launch.
          
          
          
