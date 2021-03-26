@@ -1,27 +1,52 @@
 // Write your JavaScript code here!
 
 
-   // window.addEventListener("load", function() {
-   //    let launchForm= document.getElementById(launchForm");
-   //    launchForm.addEventListener("submit", function(event) {
-
-      const formSubmit = document.getElementById("formSubmit")
-      formSubmit.addEventListener("submit",function(event){
-
-         
+   window.addEventListener("load", function() {
+      const form = document.querySelector("form");
+      form.addEventListener("submit",function(event) {
          event.preventDefault()
+            
+   
+         let pilotName = document.querySelector("input[name=pilotName]");
+         let copilotName = document.querySelector("input[name=copilotName]");
+         let fuelLevel = document.querySelector("input[name=fuelLevel]");
+         let cargoMass = document.querySelector("input[name=cargoMass]");
 
+         if (pilotName.value === "" || copilotName.value === "" || 
+            fuelLevel.value === "" || cargoMass.value === "" ) 
+         {
+            alert("All fields are required!")
 
-   //       let usernameInput = document.querySelector("input[name=username]");
-   //       let teamName = document.querySelector("input[name=team]");
-   //       if (usernameInput.value === "" || teamName.value === "") {
-   //          alert("All fields are required!");
-   //          // stop the form submission
-   //          event.preventDefault();
-   //       }
-   //    });
-   // });
+         } else if (typeof pilotName.value !== 'string' || 
+            typeof copilotName.value !== 'string' || isNaN(fuelLevel) || 
+            isNaN(cargoMass) )
+         {
+            alert("Make sure to enter valid information for each field.")
+         }
+           
+         let  pilotStatus = document.getElementById("pilotStatus");
+         pilotStatus.innerHTML = `Pilot Chris is ready for lanuch`
+
+         let  copilotStatus = document.getElementById("copilotStatus");
+         copilateStatus.innerHTML = `Co-pilot Blake is ready for launch`
+
+         let  fuelStatus = document.getElementById("fuelStatus");
+         copilateStatus.innerHTML = `Fuel level high enough for launch`
+
+         let  cargoStatus = document.getElementById("cargoStatus");
+         copilateStatus.innerHTML = `Cargo mass low enough for launch`
+         
+         
+         
+         
+         
+          
+   
+   });
 });
+
+// window.alert("String message")
+// window.confirm("String message")
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
