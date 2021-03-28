@@ -4,15 +4,14 @@
    window.addEventListener("load", function() {
       const json = fetch("planets.json");
       json.then(function(response){
-         response.json().then( function(jsonArray) {
-            console.log(jsonArray)
+         response.json().then( function(json) {
+            
       });
       const form = document.querySelector("form");
       form.addEventListener("submit",function(event) {
-         event.preventDefault()
+         event.preventDefault();
 
-            
-   
+         // const planet = require('./planets.json');
          let pilotName = document.querySelector("input[name=pilotName]");
          let copilotName = document.querySelector("input[name=copilotName]");
          let fuelLevel = document.querySelector("input[name=fuelLevel]");
@@ -31,8 +30,7 @@
          {
             alert("Make sure to enter valid information for each field.")
          };
-        
-
+      
          let pilotStatus = document.getElementById("pilotStatus");
          pilotStatus.innerHTML = `Pilot Chris is ready for lanuch`;
       
@@ -50,11 +48,6 @@
 
          let visibilityStatus = document.getElementById("faultyItems");
 
-         // let faultyStatus = document.getElementById("faultyItems");
-
-        
-
-      
          if(fuelLevel.value < 10000) {
             visibilityStatus.style.visibility = "visible";
             fuelStatus.innerHTML = `Fuel level is too low for launch`;
@@ -70,50 +63,42 @@
                launchStatus.innerHTML = "Shuttle is ready for launch";
                launchStatus.style.color = "green";
             } 
-           
-         
-         
          });
-            
+
+         // import { } from './planets.json';
+         let missionDestination = document.getElementById("missionTarget")
+         missionDestination = './planets.json'
          
 
-
+         // for (x in missionDestination) {
+         //    document.getElementById("demo").innerHTML += myObj[x];
+         //  }
+         missionDestination.innerHTML =` 
+         <h2>Mission Destination</h2>
+      <ol>
+         <li>Name: ${missionDestination.value}</li>
+         <li>Diameter: ${missionDestination.value}</li>
+         <li>Star: ${missionDestination.value}</li>
+         <li>Distance from Earth: ${missionDestination.value}</li>
+         <li>Number of Moons: ${missionDestination.value}</li>
+      </ol>
+      <img src="${missionDestination.value}">` 
+         
    });
 });
 
-// https://handlers.education.launchcode.org/static/planets.json
+//  This block of code shows how to format the HTML once you fetch some planetary JSON!
+
+//  <h2>Mission Destination</h2>
+// `<ol>
+//    <li>Name: ${json[3][]}</li>
+//    <li>Diameter: ${json[3].diameter}</li>
+//    <li>Star: ${json[3].star}</li>
+//    <li>Distance from Earth: ${json[3].distance}</li>
+//    <li>Number of Moons: ${json[3].moons}</li>
+// </ol>
+// <img src="${json[3].image}">` 
 
 
 
-/* This block of code shows how to format the HTML once you fetch some planetary JSON!
-<h2>Mission Destination</h2>
-<ol>
-   <li>Name: ${}</li>
-   <li>Diameter: ${}</li>
-   <li>Star: ${}</li>
-   <li>Distance from Earth: ${}</li>
-   <li>Number of Moons: ${}</li>
-</ol>
-<img src="${}">
-*/
 
-// "Shuttle not ready for launch"
-   // let launchStatus = document.getElementById("launchStatus");
-            // launchStatus.innerHTML = `Shuttle not ready for launch `
-            // let faultyItems = document.getElementById("faultyItems");
-            // faultyItems.visibility === visible;
-            //    launchStatus.style.color === "red";
-// alert(`With only ${fuelLevel.value} liters of fuel, the shuttle is not ready.\n
-// ${fuelLevel.value} liters is not enough fuel for the shuttle to lauch.`)
-   
-// let launchStatus = document.getElementById("launchStatus");
-         // if( fuelLevel.value < 10000) {
-         //    launchStatus.innerHTML = `Shuttle not ready for launch `
-         //    let faultyItems = document.getElementById("faultyItems");
-         //    
-         //       launchStatus.style.color === "red";  
-         //   }
-         // }
-
-// window.alert("String message")
-// window.confirm("String message")
