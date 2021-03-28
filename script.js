@@ -3,46 +3,30 @@
 
    window.addEventListener("load", function() {
       
+      const json = fetch("planets.json");
+      json.then(function(response){
+         response.json().then( function(json) {
+         
+         const destination = document.getElementById("missionTarget");
+          
+               
+                  destination.innerHTML =` 
+               <h2>Mission Destination</h2>
+                  <ol>
+                     <li>Name: ${json[0].name}</li>
+                     <li>Diameter: ${json[0].diameter}</li>
+                     <li>Star: ${json[0].star}</li>
+                     <li>Distance from Earth: ${json[0].distance}</li>
+                     <li>Number of Moons: ${json[0].moons}</li>
+                  </ol>
+               <img src="${json[0].image}">`
+            
+         });
+      });
       const form = document.querySelector("form");
       form.addEventListener("submit",function(event) {
          event.preventDefault();
 
-         const json = fetch("planets.json");
-         json.then(function(response){
-            response.json().then( function(json) {
-               // console.log(json)
-           
-            const destination = document.getElementById("missionTarget");
-             
-
-               destination.addEventListener("submit", function() {
-                  destination.innerHTML.style.visibility = "Visible";
-                  for (let i = 0; i < json.length; i++) {
-                     destination.innerHTML =` 
-                  <h2>Mission Destination</h2>
-                     <ol>
-                        <li>Name: ${json[0].name}</li>
-                        <li>Diameter: ${json[0].diameter}</li>
-                        <li>Star: ${json[0].star}</li>
-                        <li>Distance from Earth: ${json[0].distance}</li>
-                        <li>Number of Moons: ${json[0].moons}</li>
-                     </ol>
-                     <img src="${json[0].image}">` 
-                     
-
-                  }
-
-                  console.log(destination.innerHTML)
-               });
-            });
-         });
-         
-         // const missionDestination = document.getElementById('missionTarget')
-         // missionDestination = planets
-         // './planets.json'
-         
-
-         // const planet = require('./planets.json');
          let pilotName = document.querySelector("input[name=pilotName]");
          let copilotName = document.querySelector("input[name=copilotName]");
          let fuelLevel = document.querySelector("input[name=fuelLevel]");
@@ -88,6 +72,7 @@
             
          }  else  if (cargoMass.value > 10000) {
             cargoStatus.innerHTML = `cargo mass is too large for launch`;
+            visibilityStatus.style.visibility = "visible";
                launchStatus.innerHTML = `Shuttle not ready for launch`;
                launchStatus.style.color = "red"
          }  else { 
@@ -101,29 +86,6 @@
          
    
 
-// let missionDestination = document.getElementById("missionTarget")
-// missionDestination = './planets.json'
-// missionDestination.innerHTML =` 
-// <h2>Mission Destination</h2>
-// <ol>
-// <li>Name: ${missionDestination.value}</li>
-// <li>Diameter: ${missionDestination.value}</li>
-// <li>Star: ${missionDestination.value}</li>
-// <li>Distance from Earth: ${missionDestination.value}</li>
-// <li>Number of Moons: ${missionDestination.value}</li>
-// </ol>
-// <img src="${missionDestination.value}">` 
-//  This block of code shows how to format the HTML once you fetch some planetary JSON!
-
-//  <h2>Mission Destination</h2>
-// `<ol>
-//    <li>Name: ${json[3][]}</li>
-//    <li>Diameter: ${json[3].diameter}</li>
-//    <li>Star: ${json[3].star}</li>
-//    <li>Distance from Earth: ${json[3].distance}</li>
-//    <li>Number of Moons: ${json[3].moons}</li>
-// </ol>
-// <img src="${json[3].image}">` 
 
 
 
